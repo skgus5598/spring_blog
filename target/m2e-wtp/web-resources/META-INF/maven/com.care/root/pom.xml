@@ -117,6 +117,14 @@
 			<scope>test</scope>
 		</dependency>        
 		
+		<!-- spring-test -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${org.springframework-version}</version>
+		    <scope>test</scope>
+		</dependency>
+		
 			<!-- HikariCP : connection pool을 해주는 기능  -->
 		<dependency>
 		    <groupId>com.zaxxer</groupId>
