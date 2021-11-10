@@ -35,16 +35,28 @@
 			<h1 style="font-size: 50px;">PAge</h1>
 			<nav class="navMain">
 				<ul>
-					<li><a href="${contextPath }/index">HOME</a></li>
-					<li><a href="${contextPath }/default/introduce.jsp">INTRODUCE</a></li>
-					<li><a href="${contextPath }/board/boardList.jsp">BOARD</a></li>
-					<li><a href="${contextPath }/memberList">MEMBER LIST</a></li>					
+					<li><a href="${contextPath }/member/index">HOME</a></li>
+					<li><a href="${contextPath }/member/introduce">INTRODUCE</a></li>
+					<li><a href="${contextPath }/member/boardList">BOARD</a></li>
+					
 					<c:choose>
 						<c:when test="${loginUser == null }">
-							<li><a href="${contextPath }/login">LOGIN</a></li>
+							<li><a href="${contextPath }/member/login">MEMBER LIST</a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="${contextPath }/logout">LOGOUT</a></li>
+							<li><a href="${contextPath }/member/memberList">MEMBER LIST</a></li>
+						</c:otherwise>
+					</c:choose>	
+	
+	<%-- 		<li><a href="${contextPath }/member/memberList">MEMBER LIST</a></li>		 --%>		
+					
+					
+					<c:choose>
+						<c:when test="${loginUser == null }">
+							<li><a href="${contextPath }/member/login">LOGIN</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="${contextPath }/member/logout">LOGOUT</a></li>
 						</c:otherwise>
 					</c:choose>
 				</ul>

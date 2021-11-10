@@ -29,23 +29,18 @@
 <fmt:requestEncoding value="utf-8"/>
 <jsp:include page="../default/header.jsp"></jsp:include>
 	<div class="wrap">
-	<h1> ${dto.id } 님의 정보 </h1><hr> <br>
-	아이디 : ${dto.id }<br>
-	비밀번호 : ${dto.pwd }<br>
-	주소 : ${dto.addr }<br>
-	
-	<input type="button" value="뒤로가기 " onclick="location.href='memberList'">
-			<hr>
-			<c:if test="${loginUser == dto.id }">
-				<button class="button" onclick="location.href='${contextPath }/member/modify?id=${dto.id}'">수정</button>
-				<button class="button" onclick="location.href='${contextPath }/member/delete?id=${dto.id}'">삭제</button>
-			</c:if>
+	<form action="modifyMem" method="post">	
+		<h1> ${dto.id } 님의 정보 수정</h1><hr> <br>
+		아이디 : ${dto.id }<input type="hidden" name="id" value="${dto.id }"><br>
+		비밀번호 : <input type="text" name="pwd" placeholder="${dto.pwd }"><br>
+		주소 : <input type="text" name="addr" placeholder="${dto.addr }"><br>
+	<hr>
+	<input class="button" type="button" value="취소하기 " onclick="location.href='memberList'">
+	<input class="button" type="submit" value="수정하기">
+	</form>	
 	
 	</div>
 
-		
-		
-		
 <jsp:include page="../default/footer.jsp"></jsp:include>
 </body>
 </html>

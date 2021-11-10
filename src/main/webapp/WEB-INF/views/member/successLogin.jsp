@@ -15,19 +15,19 @@
 		<c:when test="${result == 1}">
 			<script type="text/javascript">
 				alert("존재하지 않는 아이디 입니다.");
-				location.href="${contextPath}/login";
+				location.href="${contextPath}/member/login";
 			</script>
 		</c:when>
 		<c:when test="${result ==2 }">
 			<script type="text/javascript">
 				alert("비밀번호가 틀렸습니다.");
-				location.href="${contextPath}/login";
+				location.href="${contextPath}/member/login";
 			</script>
 		</c:when>
 		<c:otherwise>
 			<script type="text/javascript">
 				alert("로그인 성공!");				
-				location.href="${contextPath}/successLogin?id=${id}";
+				location.href="${contextPath}/member/successLogin?id=${id}";
 			</script>
 		</c:otherwise>
 	</c:choose>

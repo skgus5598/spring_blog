@@ -58,7 +58,7 @@
 						<div><button type="submit" class="button">로그인</button></div>
 					</form>
 					</td>
-					<td><a href="${contextPath }/register"><img src="../img/black.png"></a></td>
+					<td><a href="${contextPath }/member/register"><img src="../img/black.png"></a></td>
 					<td class="mainSec">
 					<form action="register" method="post">
 						<div class="mainSec-a">								

@@ -32,8 +32,8 @@ public class TestMember {
 	@Test   // mapper(=dao)의 insert 테스트 
 	public void testInsert() {
 		MemberDTO dto = new MemberDTO();
-		dto.setId("ababab");
-		dto.setPwd("123");
+		dto.setId("hohoho");
+		dto.setPwd("hohoho");
 		dto.setAddr("seoulcity");
 		mapper.insert(dto);		
 	}
@@ -43,6 +43,23 @@ public class TestMember {
 		ArrayList<MemberDTO> list = mapper.memberList();
 		System.out.println(list.size());
 	}
+	@Test
+	public void testLoginchk() {
+		MemberDTO dto = mapper.getMember("bbb");
+		System.out.println(dto.getAddr());
+	}
+	
+	@Test
+	public void testUpdate() {
+		MemberDTO dto = mapper.getMember("aaa");
+		dto.setPwd("aaa"); dto.setAddr("seoul");
+		mapper.modify(dto);
+	}
+	@Test
+	public void testDelete() {
+		mapper.delete("hohoho");
+	}
+	
 	
 
 }

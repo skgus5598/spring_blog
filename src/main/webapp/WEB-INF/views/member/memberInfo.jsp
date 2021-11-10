@@ -10,16 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-.wrap {	width: 1040px;	margin: auto; }
-	.button {
-			margin-top:20px;
-			padding: 7px 25px; /*좌우 / 위아래 */
-			border-radius: 15px;
-			background-color: black; color: white;
-			text-align:center;	
-			border-color:white;
-		}
-	.button:hover{background-color: rgb(255,200,255); }
+	.wrap {	width: 1040px;	margin: auto; }
 	.detail1{text-decoration: none; background-color: highlight; color:green}
 	.detail2{text-decoration: none; background-color: black; color:yellow}
  a{text-decoration: none;}	
@@ -35,26 +26,25 @@ session : ${loginUser }
 			<c:when test="${loginUser == null }">
 			 	<script>
 			 		alert("로그인 먼저 하세요 ")
-			 		location.href="${contextPath}/login"
+			 		location.href="${contextPath}/member/login"
 			 	</script>
 			</c:when>			
 			<c:otherwise>
 				<div class="wrap">
 					<h1>모든 회원 정보 </h1>
 					<c:forEach var="dto" items="${dto }"><hr><br>												
-							<a href="${contextPath }/memInfo?id=${dto.id}">아이디 :  ${dto.id }</a><br>							
+							아이디 :  ${dto.id }<br>							
 							비밀번호 : ${dto.pwd } <br>
-							주소 : ${dto.addr }<br>
-					</c:forEach>	
-<%-- 							<c:choose>
-								<c:when test="${loginUser == dto.id }">
-									<a class="detail2"  href="${contextPath }/default/memberView.jsp?Id=${dto.id}">정보 보기 </a>
-								</c:when>
-								<c:otherwise>
-									<a class="detail1"  href="${contextPath }/default/memberView.jsp?Id=${dto.id}">정보 보기 </a>
-								</c:otherwise>
-							</c:choose>															
---%>					
+							주소 : ${dto.addr }<br>						
+ 					<c:choose>
+						<c:when test="${loginUser == dto.id }">
+							<a class="detail2"  href="${contextPath }/member/memInfo?id=${dto.id}">정보 보기 </a>
+						</c:when>
+						<c:otherwise>
+							<a class="detail1"  href="${contextPath }/member/memInfo?id=${dto.id}">정보 보기 </a>
+						</c:otherwise>
+					</c:choose>															
+					</c:forEach>
 				</div>			
 			</c:otherwise>
 		</c:choose>
