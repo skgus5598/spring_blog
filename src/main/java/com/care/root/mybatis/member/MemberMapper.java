@@ -1,6 +1,7 @@
 package com.care.root.mybatis.member;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -14,4 +15,7 @@ public interface MemberMapper {
 	public int insert(MemberDTO dto);
 	public void modify(MemberDTO dto);
 	public void delete(String id);
+	
+	public void keepLogin(Map<String, Object> map);
+	public MemberDTO getUserSessionId(String sessionId);
 }

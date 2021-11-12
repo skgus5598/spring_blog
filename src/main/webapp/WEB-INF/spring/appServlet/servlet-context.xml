@@ -14,7 +14,8 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-	<resources mapping="/css/**" location="/resources/img" />
+	<resources mapping="/img/**" location="/resources/img" />
+
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -24,6 +25,33 @@
 	
 	<context:component-scan base-package="com.care.root" />
 	
+	<beans:bean id="ci" class="com.care.root.common.interceptor.CommonInterceptor" />
+	<beans:bean id="bi" class="com.care.root.board.interceptor.BInterceptor" />	
+	<beans:bean id="autoLogin" class="com.care.root.member.interceptor.AutoLoginInterceptor" />	
 	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/memberInfo" /> <!-- 컨트롤 요청 경로  -->
+			<mapping path="/board/list" /> 
+			<mapping path="/board/write" /> 
+			<beans:ref bean="ci" /> <!--  사용자가 mapping경로를 요청하게되면, ci를 보세요!! (ci = 우리가 만든CommonInterceptor)가 동작한다. -->
+		</interceptor>
+	</interceptors>
+		
+	<interceptors>
+			<interceptor>
+			<mapping path="/index" /> <!-- 컨트롤 요청 경로  -->
+			<beans:ref bean="autoLogin" /> 
+		</interceptor>
+	
+		<interceptor>
+			<mapping path="/index" /> <!-- 컨트롤 요청 경로  -->
+			<beans:ref bean="bi" /> <!--  사용자가 mapping경로를 요청하게되면, bi를 보세요!! (bi = 우리가 만든CommonInterceptor)가 동작한다. -->
+		</interceptor>
+	</interceptors>
+	
+
+	
+
 	
 </beans:beans>

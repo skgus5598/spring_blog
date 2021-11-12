@@ -35,11 +35,13 @@
 			<h1 style="font-size: 50px;">PAge</h1>
 			<nav class="navMain">
 				<ul>
-					<li><a href="${contextPath }/member/index">HOME</a></li>
+					<li><a href="${contextPath }/index">HOME</a></li>
 					<li><a href="${contextPath }/member/introduce">INTRODUCE</a></li>
-					<li><a href="${contextPath }/member/boardList">BOARD</a></li>
+					<li><a href="${contextPath }/board/list">BOARD</a></li>
 					
-					<c:choose>
+					<li><a href="${contextPath }/member/memberList">MEMBER LIST</a></li>
+					
+		<%-- 	<c:choose>
 						<c:when test="${loginUser == null }">
 							<li><a href="${contextPath }/member/login">MEMBER LIST</a></li>
 						</c:when>
@@ -47,7 +49,7 @@
 							<li><a href="${contextPath }/member/memberList">MEMBER LIST</a></li>
 						</c:otherwise>
 					</c:choose>	
-	
+	--%>		
 	<%-- 		<li><a href="${contextPath }/member/memberList">MEMBER LIST</a></li>		 --%>		
 					
 					

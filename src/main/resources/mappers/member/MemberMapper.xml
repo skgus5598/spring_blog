@@ -8,6 +8,8 @@
 		<id property="id" column="id"/>
 		<result property="pwd" column="pwd"/>
 		<result property="addr" column="addr"/>
+		<result property="limitTime" column="limit_time"/>
+		<result property="sessionId" column="session_id"/>
 	</resultMap>
 	
 	<select id="loginChk" resultMap="member">
@@ -24,7 +26,7 @@
 	</select>
 	
 	<insert id="insert" >
-			insert into membership values(#{id}, #{pwd}, #{addr})
+			insert into membership(id, pwd, addr) values(#{id}, #{pwd}, #{addr})
 	</insert>
 	
 	<update id="modify">
@@ -34,5 +36,15 @@
 	<delete id="delete">
 			delete from membership where id = #{id}
 	</delete>
+	
+	<update id="keepLogin">
+			update membership set session_id = #{sessionId},
+													  limit_time= #{limitDate} 
+													  where id = #{id}
+	</update>
+	
+	<select id="getUserSessionId" resultMap="member">
+			select * from membership where session_id = #{sessionId}
+	</select>
 	
 </mapper>
