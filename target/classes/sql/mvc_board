@@ -1,0 +1,22 @@
+
+create table mvc_board(
+Write_no number(10) primary key, //글번호
+Title varchar2(100), //제목
+Content varchar2(300), //내용
+Savedate date default sysdate,
+Hit number(10) default 0, //조회수
+Image_file_name varchar(100),
+Id varchar(20) not null,
+constraint fk_test foreign key(id) references membership(id) on delete cascade);
+
+﻿create table reply(
+id varchar(20),
+title varchar(50),
+content varchar(300),
+write_group number(10),  // 게시판 원래 글에 대한 번
+write_date date default sysdate,
+constraint fk_test1 foreign key(write_group) references mvc_board(write_no) on delete cascade,
+//reply 컬럼 중 wirte_group컬럼을 외래키로 설정, mvc_board테이블의 write_no컬럼을 참조한다(이게 삭제되면 reply테이블의 write_group도 삭제됩닏)
+constraint fk_test2 foreign key(id) references membership(id) on delete cascade
+// reply의 컬럼 중  id를 외래키로 지정, membership테이블의 id 컬럼을 참조합니다(이게 삭제되면 reply의 id도 삭제됨)
+);

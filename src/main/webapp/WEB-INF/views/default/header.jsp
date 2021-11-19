@@ -37,7 +37,7 @@
 				<ul>
 					<li><a href="${contextPath }/index">HOME</a></li>
 					<li><a href="${contextPath }/member/introduce">INTRODUCE</a></li>
-					<li><a href="${contextPath }/board/list">BOARD</a></li>
+					<li><a href="${contextPath }/board/boardAllList">BOARD</a></li>
 					
 					<li><a href="${contextPath }/member/memberList">MEMBER LIST</a></li>
 					

@@ -32,8 +32,9 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/member/memberInfo" /> <!-- 컨트롤 요청 경로  -->
-			<mapping path="/board/list" /> 
-			<mapping path="/board/write" /> 
+	<!-- <mapping path="/board/list" /> 
+			<mapping path="/board/write" /> -->
+			<mapping path="/board/writeForm" /> 			
 			<beans:ref bean="ci" /> <!--  사용자가 mapping경로를 요청하게되면, ci를 보세요!! (ci = 우리가 만든CommonInterceptor)가 동작한다. -->
 		</interceptor>
 	</interceptors>
@@ -51,6 +52,11 @@
 	</interceptors>
 	
 
+	<!--  id는 메소드 이름과 동일								자료형   -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<beans:property name="maxUploadSize" value="52428800"/>
+		<beans:property name="defaultEncoding" value="utf-8"/>
+	</beans:bean>
 	
 
 	

@@ -7,7 +7,8 @@ public class MemberDTO {
 	private String id;
 	private String pwd;
 	private String addr;
-	private Date limitTime;   // sql에 있는 date임.
+	private Date limitTime;   // sql에 있는 date임
+	private String sessionId;
 	
 	
 	public Date getLimitTime() {
@@ -22,7 +23,7 @@ public class MemberDTO {
 	public void setSessionId(String sessionId) {
 		this.sessionId = sessionId;
 	}
-	private String sessionId;
+	
 	
 	
 	public String getId() {

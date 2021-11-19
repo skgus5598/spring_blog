@@ -17,6 +17,6 @@ public interface MemberService {
 	public void modifyMem(MemberDTO dto); //수정하기 
 	public void deleteMem(String id); // 삭제하기 
 	
-	public void keepLogin(String sessionId, Date limitDate, String id);
+	public void keepLogin(String sessionId, Date limitDate, String id); // 로그인 유지 쿠키 
 	public MemberDTO getUserSessionId(String sessionId);
 }

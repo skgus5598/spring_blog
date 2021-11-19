@@ -24,7 +24,7 @@
   <property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml"/>
   </bean>
   <!-- 마이바티스 xml파일과 dao빈 연결 . db 관련 빈은 여기있어요  -->
-  <mybatis-spring:scan base-package="com.care.root.mybatis.member"/>
+  <mybatis-spring:scan base-package="com.care.root.mybatis"/>
   
   <!-- 트랜잭션 . rollback기능  -->
 <bean name="txMgr"
